@@ -8,7 +8,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-PATH_TO_SAVE_VIDEO = "./downloaded/"
+PATH_TO_SAVE_VIDEO = "./input-videos/"
 CONVERTER_SCRIPT = "convert-mp4-to-text.py"
 
 @app.route('/')
@@ -22,7 +22,7 @@ def process_video():
     
     path = filename + ".mp4"
     print(path)
-    process = subprocess.Popen(['python', CONVERTER_SCRIPT, '--convert-transcribe', '--language', language, path])
+    process = subprocess.Popen(['python3', CONVERTER_SCRIPT, '--convert-transcribe', '--language', language, path])
     process.wait()
 
     txt_file_path = "text/" + filename + ".txt"

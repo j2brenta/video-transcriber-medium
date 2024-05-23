@@ -18,7 +18,6 @@
         $(document).ready(function() {
             $("form").on("submit", function(event) {
                 event.preventDefault();
-
                 $.ajax({
                     url: '/process_video',
                     type: 'post',
