@@ -23,12 +23,9 @@ def ffmpeg_convert_mp4_to_mp3(file_name):
     os.system(ffmpeg)
 
 def whisper_transcribe_mp3(file_name, language):
-    #model = whisper.load_model("medium")
-    #result = model.transcribe(file_name, language=language, fp16=False)
     filename_without_extension = file_name.split('.')[0]
     print(filename_without_extension)
-    #with open(f'{filename_without_extension}.txt', 'w') as f:
-    #    f.write(result["text"])
+
     whisper_command = 'Whisper-mac'
     model_path = '-m ../whisper.cpp/models/ggml-small.bin'
     output_options = f'-l {language} --output-txt --output-file {TEXT_PATH}/{filename_without_extension} {PROCESSED_PATH}/{filename_without_extension}-processed.wav'
